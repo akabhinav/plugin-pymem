@@ -8,8 +8,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Python dependencies
-COPY pyproject.toml .
-RUN pip install --no-cache-dir -e ".[all]" 2>/dev/null || pip install --no-cache-dir -e .
+COPY pyproject.toml README.md ./
+RUN pip install --no-cache-dir ".[all]" 2>/dev/null || pip install --no-cache-dir .
 
 # Application code
 COPY pymem/ pymem/
