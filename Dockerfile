@@ -7,13 +7,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-# Python dependencies
+# Copy everything needed for install
 COPY pyproject.toml README.md ./
-RUN pip install --no-cache-dir ".[all]" 2>/dev/null || pip install --no-cache-dir .
-
-# Application code
 COPY pymem/ pymem/
 COPY alembic/ alembic/
+
+# Install
+RUN pip install --no-cache-dir ".[all]" 2>/dev/null || pip install --no-cache-dir .
 
 # Create data directory
 RUN mkdir -p /app/data/kuzu

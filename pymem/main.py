@@ -8,6 +8,8 @@ import structlog
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from fastapi.responses import PlainTextResponse
+
 from pymem.api.v1 import admin, agents, health, memories, sessions, users
 from pymem.api.v1.dependencies import set_engine
 from pymem.cache.redis_cache import InMemoryCache
@@ -158,6 +160,16 @@ def create_app() -> FastAPI:
         allow_methods=["*"],
         allow_headers=["*"],
     )
+
+    # Prometheus metrics endpoint
+    @app.get("/metrics", response_class=PlainTextResponse)
+    async def metrics():
+        try:
+            from prometheus_client import generate_latest
+
+            return generate_latest()
+        except ImportError:
+            return PlainTextResponse("prometheus_client not installed", status_code=501)
 
     # Register routers
     app.include_router(health.router)
