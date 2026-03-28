@@ -34,28 +34,28 @@ st.markdown("""
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
-    --bg-primary: #0a0e1a;
-    --bg-secondary: #111827;
-    --bg-card: #1a1f35;
-    --bg-card-hover: #1e2442;
-    --border: #2a3150;
-    --border-light: #3a4570;
-    --text-primary: #f1f5f9;
-    --text-secondary: #94a3b8;
+    --bg-primary: #f8fafc;
+    --bg-secondary: #ffffff;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f1f5f9;
+    --border: #e2e8f0;
+    --border-light: #cbd5e1;
+    --text-primary: #1e293b;
+    --text-secondary: #475569;
     --text-muted: #64748b;
-    --accent-blue: #3b82f6;
-    --accent-blue-light: #60a5fa;
-    --accent-purple: #8b5cf6;
-    --accent-green: #22c55e;
-    --accent-orange: #f59e0b;
-    --accent-red: #ef4444;
-    --accent-cyan: #06b6d4;
-    --gradient-blue: linear-gradient(135deg, #3b82f6, #8b5cf6);
-    --gradient-green: linear-gradient(135deg, #22c55e, #06b6d4);
-    --gradient-orange: linear-gradient(135deg, #f59e0b, #ef4444);
-    --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
-    --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
-    --shadow-lg: 0 8px 30px rgba(0,0,0,0.5);
+    --accent-blue: #2563eb;
+    --accent-blue-light: #3b82f6;
+    --accent-purple: #7c3aed;
+    --accent-green: #16a34a;
+    --accent-orange: #d97706;
+    --accent-red: #dc2626;
+    --accent-cyan: #0891b2;
+    --gradient-blue: linear-gradient(135deg, #2563eb, #7c3aed);
+    --gradient-green: linear-gradient(135deg, #16a34a, #0891b2);
+    --gradient-orange: linear-gradient(135deg, #d97706, #dc2626);
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+    --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
     --radius-sm: 8px;
     --radius-md: 12px;
     --radius-lg: 16px;
@@ -63,12 +63,19 @@ st.markdown("""
 
 .stApp {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-primary) !important;
+}
+[data-testid="stMainBlockContainer"] {
+    background-color: var(--bg-primary) !important;
 }
 
 /* ── Sidebar ── */
 section[data-testid="stSidebar"] {
-    background: var(--bg-secondary) !important;
-    border-right: 1px solid var(--border) !important;
+    background: #1e293b !important;
+    border-right: 1px solid #334155 !important;
+}
+section[data-testid="stSidebar"] * {
+    color: #e2e8f0 !important;
 }
 section[data-testid="stSidebar"] .stRadio label {
     font-size: 0.9rem !important;
@@ -76,9 +83,15 @@ section[data-testid="stSidebar"] .stRadio label {
     border-radius: var(--radius-sm) !important;
     margin-bottom: 2px !important;
     transition: all 0.2s ease !important;
+    color: #e2e8f0 !important;
 }
 section[data-testid="stSidebar"] .stRadio label:hover {
-    background: var(--bg-card) !important;
+    background: #334155 !important;
+}
+section[data-testid="stSidebar"] input {
+    background: #334155 !important;
+    border-color: #475569 !important;
+    color: #f1f5f9 !important;
 }
 
 /* ── Page header ── */
@@ -181,10 +194,10 @@ section[data-testid="stSidebar"] .stRadio label:hover {
     border-radius: 20px;
     margin-bottom: 0.6rem;
 }
-.type-semantic { background: rgba(59,130,246,0.15); color: var(--accent-blue-light); border: 1px solid rgba(59,130,246,0.3); }
-.type-episodic { background: rgba(34,197,94,0.15); color: var(--accent-green); border: 1px solid rgba(34,197,94,0.3); }
-.type-procedural { background: rgba(245,158,11,0.15); color: var(--accent-orange); border: 1px solid rgba(245,158,11,0.3); }
-.type-working { background: rgba(139,92,246,0.15); color: var(--accent-purple); border: 1px solid rgba(139,92,246,0.3); }
+.type-semantic { background: #dbeafe; color: #1d4ed8; border: 1px solid #93c5fd; }
+.type-episodic { background: #dcfce7; color: #15803d; border: 1px solid #86efac; }
+.type-procedural { background: #fef3c7; color: #b45309; border: 1px solid #fcd34d; }
+.type-working { background: #ede9fe; color: #6d28d9; border: 1px solid #c4b5fd; }
 .memory-content {
     color: var(--text-primary);
     font-size: 0.92rem;
@@ -245,8 +258,8 @@ section[data-testid="stSidebar"] .stRadio label:hover {
 
 /* ── Info banner ── */
 .info-banner {
-    background: linear-gradient(135deg, rgba(59,130,246,0.08), rgba(139,92,246,0.08));
-    border: 1px solid rgba(59,130,246,0.2);
+    background: linear-gradient(135deg, #eff6ff, #f5f3ff);
+    border: 1px solid #bfdbfe;
     border-radius: var(--radius-md);
     padding: 1rem 1.4rem;
     margin-bottom: 1.2rem;
@@ -290,14 +303,14 @@ section[data-testid="stSidebar"] .stRadio label:hover {
     font-weight: 500;
 }
 .health-ok {
-    background: rgba(34,197,94,0.12);
-    border: 1px solid rgba(34,197,94,0.3);
-    color: var(--accent-green);
+    background: #dcfce7;
+    border: 1px solid #86efac;
+    color: #15803d;
 }
 .health-err {
-    background: rgba(239,68,68,0.12);
-    border: 1px solid rgba(239,68,68,0.3);
-    color: var(--accent-red);
+    background: #fee2e2;
+    border: 1px solid #fca5a5;
+    color: #b91c1c;
 }
 
 /* ── Architecture table ── */
@@ -331,8 +344,8 @@ section[data-testid="stSidebar"] .stRadio label:hover {
 
 /* ── Warning banner ── */
 .warn-banner {
-    background: linear-gradient(135deg, rgba(239,68,68,0.08), rgba(245,158,11,0.08));
-    border: 1px solid rgba(239,68,68,0.25);
+    background: linear-gradient(135deg, #fef2f2, #fffbeb);
+    border: 1px solid #fca5a5;
     border-radius: var(--radius-md);
     padding: 1rem 1.4rem;
     margin-bottom: 1.2rem;
@@ -439,9 +452,9 @@ footer { visibility: hidden; }
     font-weight: 700;
     margin-right: 0.6rem;
 }
-.priority-high { background: rgba(239,68,68,0.15); color: var(--accent-red); border: 1px solid rgba(239,68,68,0.3); }
-.priority-mid { background: rgba(245,158,11,0.15); color: var(--accent-orange); border: 1px solid rgba(245,158,11,0.3); }
-.priority-low { background: rgba(34,197,94,0.15); color: var(--accent-green); border: 1px solid rgba(34,197,94,0.3); }
+.priority-high { background: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; }
+.priority-mid { background: #fef3c7; color: #b45309; border: 1px solid #fcd34d; }
+.priority-low { background: #dcfce7; color: #15803d; border: 1px solid #86efac; }
 .tag-chip {
     display: inline-block;
     font-size: 0.7rem;
@@ -559,11 +572,11 @@ def main():
     # ── Sidebar ──
     with st.sidebar:
         st.markdown("""
-        <div style="padding: 0.8rem 0.5rem 1.2rem; border-bottom: 1px solid var(--border); margin-bottom: 1rem;">
-            <div style="font-size: 1.3rem; font-weight: 700; background: linear-gradient(135deg, #3b82f6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+        <div style="padding: 0.8rem 0.5rem 1.2rem; border-bottom: 1px solid #475569; margin-bottom: 1rem;">
+            <div style="font-size: 1.3rem; font-weight: 700; background: linear-gradient(135deg, #60a5fa, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
                 PyMem
             </div>
-            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem;">
+            <div style="font-size: 0.75rem; color: #94a3b8; margin-top: 0.2rem;">
                 Four-Type Memory Platform for AI Agents
             </div>
         </div>
@@ -618,7 +631,7 @@ def main():
     elif page == "GDPR Forget":
         render_forget(engine, user_id)
     elif page == "Admin":
-        render_admin(engine)
+        render_admin(engine, user_id)
 
 
 # ──────────────────────────────────────────────────────────────
@@ -1351,7 +1364,7 @@ def render_forget(engine, user_id):
             st.markdown(f"Breakdown: {breakdown}")
 
 
-def render_admin(engine):
+def render_admin(engine, user_id):
     page_header("Admin Panel", "Platform statistics, backend health, and audit log")
 
     # Stats
